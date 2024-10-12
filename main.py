@@ -4,8 +4,7 @@ from duckduckgo_search import DDGS
 import bs4
 import time
 import os
-import shutil
-
+import http.server
 
 
 def getWebsiteData(url):
@@ -206,17 +205,25 @@ def main(query='Who created GitHub?'):
 
     
     # add imageUrls to the data.json file
-    with open('3.json', 'w') as f:
+    with open('data.json', 'w') as f:
         jsonData['imageUrls'] = images
         json.dump(jsonData, f)
     
     print('Done')
     
-    # copy the data.json file to C:\xampp\htdocs\Arc search and replace data.json with the new data.json file
-    # delete the old data.json file
-    os.remove('C:\\xampp\\htdocs\\Arc search\\data.json')
-    shutil.copy('3.json', 'C:\\xampp\\htdocs\\Arc search\\data.json')
+    # host the files using a simple http server and open the browser
+    PORT = 8000
+    Handler = http.server.SimpleHTTPRequestHandler
+    # open localhost:8000 using the default browser
+    os.system(f'start http://localhost:{PORT}/report.html')
+
+    with http.server.HTTPServer(("", PORT), Handler) as httpd:
+        print("serving at port", PORT)
+        httpd.serve_forever()
+
 
 
 if __name__ == "__main__":
-    main('What happened to the telegram owner?')
+    print('Enter your query:')
+    query = input()
+    main(query)
