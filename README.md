@@ -1,6 +1,8 @@
 # Browse for Me
 
-This is a very early clone of the Arc Search [Browse for Me](https://arc.net/search) feature. It is a simple python script that uses Ollama and DuckDuckGo to search for a query and generate a report of the results.
+![Screenshot](assets/screenshot1.png)
+
+This is a very early clone of the [Arc Search](https://arc.net/search) _Browse for Me_ feature. It is a simple python script that uses Ollama and DuckDuckGo to search for a query and generate a report of the results.
 
 ## Features
 
