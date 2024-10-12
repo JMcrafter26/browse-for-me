@@ -38,3 +38,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [DuckDuckGo](https://duckduckgo.com)
 - [Arc](https://arc.net)
 - [JMcrafter26 :) ](https://github.com/JMcrafter26)
+
+I am not affiliated with any of the above companies or projects. This is a simple clone of the _Browse for Me_ feature of Arc Search. I am not responsible for any misuse of this script. Use it at your own risk.
