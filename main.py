@@ -177,6 +177,16 @@ def main(query='Who created GitHub?'):
     print('Getting data from AI')
     jsonData = getAiResponse(prompt)
 
+    # check if the response is valid
+    if 'title' not in jsonData or 'answer' not in jsonData or 'sections' not in jsonData:
+        # repeat the process max 3 times
+        for i in range(3):
+            print('Invalid response. Trying again...')
+            jsonData = getAiResponse(prompt)
+            if 'title' in jsonData and 'answer' in jsonData and 'sections' in jsonData:
+                break
+        else:
+            print('Invalid response. Try again later.')
     # add the sources to the data.json file
     # sources: [
     #    {
